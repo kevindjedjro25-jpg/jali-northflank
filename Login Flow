@@ -1,0 +1,26 @@
+# 1. Register
+curl -X POST http://localhost:5000/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "creator@example.com",
+    "password": "SecurePassword123!",
+    "name": "Kofi Films",
+    "role": "creator"
+  }'
+
+# Response:
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "user": {
+    "id": "user_1234567890",
+    "email": "creator@example.com",
+    "name": "Kofi Films",
+    "role": "creator"
+  }
+}
+
+# 2. Store token securely (localStorage, secure cookie)
+
+# 3. Use token in requests
+curl -X GET http://localhost:5000/api/auth/profile \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
