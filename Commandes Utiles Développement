@@ -1,0 +1,8 @@
+# Démarrer en mode développement (avec auto-reload)
+npm run dev
+
+# Démarrer en mode production
+npm start
+
+# Voir les logs en temps réel
+tail -f logs/jali.log
