@@ -1,0 +1,8 @@
+# Container won't start
+docker-compose logs backend
+docker-compose up --no-detach
+
+# Port already in use
+docker-compose down
+lsof -i :80
+docker-compose up -d
