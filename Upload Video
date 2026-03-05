@@ -1,0 +1,26 @@
+// JavaScript/React Example
+const uploadVideo = async (videoFile, metadata) => {
+  const formData = new FormData();
+  formData.append('video', videoFile);
+  formData.append('title', metadata.title);
+  formData.append('description', metadata.description);
+  formData.append('category', metadata.category);
+
+  const response = await fetch('/api/videos/upload', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    },
+    body: formData
+  });
+
+  return response.json();
+};
+
+// Usage:
+const videoFile = document.getElementById('video-input').files[0];
+const result = await uploadVideo(videoFile, {
+  title: 'Ubuntu Flow - Part 1',
+  description: 'A story about African digital transformation',
+  category: 'film'
+});
